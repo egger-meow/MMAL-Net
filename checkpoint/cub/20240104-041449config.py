@@ -2,13 +2,13 @@ from utils.indices2coordinates import indices2coordinates
 from utils.compute_window_nums import compute_window_nums
 import numpy as np
 
-CUDA_VISIBLE_DEVICES = '0,1'  # The current version only supports one GPU training
+CUDA_VISIBLE_DEVICES = '0'  # The current version only supports one GPU training
 
 
 set = 'CUB'  # Different dataset with different
 model_name = ''
 
-batch_size = 4
+batch_size = 6
 vis_num = batch_size  # The number of visualized images in tensorboard
 eval_trainset = False  # Whether or not evaluate trainset
 save_interval = 1
@@ -47,7 +47,14 @@ else:
     ratios = [[6, 6], [5, 7], [7, 5],
               [8, 8], [6, 10], [10, 6], [7, 9], [9, 7],
               [10, 10], [9, 11], [11, 9], [8, 12], [12, 8]]
-
+    if set == 'CAR':
+        model_path = './checkpoint/car'      # pth save path
+        root = './datasets/Stanford_Cars'  # dataset path
+        num_classes = 196
+    elif set == 'Aircraft':
+        model_path = './checkpoint/aircraft'      # pth save path
+        root = './datasets/FGVC-aircraft'  # dataset path
+        num_classes = 100
 
 
 '''indice2coordinates'''

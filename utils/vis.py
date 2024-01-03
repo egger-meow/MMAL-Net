@@ -22,7 +22,7 @@ def image_with_boxes(image, coordinates=None, color=None):
         image[2] = image[2].mul(std[2]) + mean[2]
         image = image.mul(255).byte()
 
-        image = image.data.cpu().numpy()
+        image = image.data.gpu().numpy()
 
         image.astype(np.uint8)
 

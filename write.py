@@ -48,6 +48,6 @@ with open(link, 'w') as f1:
             w = img.width
             h = img.height
             
-            f1.write(f'{counter} 0.0 .0.0 {w}.0 {h}.0\n')
+            f1.write(f'{counter} 0.0 0.0 {w}.0 {h}.0\n')
             
 print(counter)
